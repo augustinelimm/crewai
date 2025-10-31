@@ -12,5 +12,6 @@ fi
 echo "Installing dependencies..."
 poetry install
 
-echo "Please edit .env file with your actual OpenAI API key"
+echo "Please add .env file with your actual OPENAI_API_KEY and SERPER_API_KEY"
+
 echo "Setup complete! Run: poetry run python main.py"

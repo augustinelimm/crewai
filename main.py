@@ -9,46 +9,47 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-class TripCrew:
-    def __init__(self, origin, cities, date_range, interests):
-        self.origin = origin
-        self.cities = cities
-        self.date_range = date_range
-        self.interests = interests
+class SkincareCrew:
+    def __init__(self, skin_type, concerns, budget, existing_products=""):
+        self.skin_type = skin_type
+        self.concerns = concerns
+        self.budget = budget
+        self.existing_products = existing_products
 
     def run(self):
         agents = TravelAgents()
         tasks = TravelTasks()
 
-        expert_travel_agent = agents.expert_travel_agent()
-        city_selection_expert = agents.city_selection_expert()
-        local_tour_guide = agents.local_tour_guide()
+        korean_researcher = agents.korean_skincare_researcher()
+        product_researcher = agents.product_researcher()
+        skincare_expert = agents.skincare_expert()
 
-        plan_itinerary = tasks.plan_itinerary(
-            expert_travel_agent,
-            self.cities,
-            self.date_range,
-            self.interests
+        routine_framework = tasks.gather_korean_routine_framework(
+            korean_researcher,
+            self.skin_type,
+            self.concerns,
+            self.budget
         )
 
-        identify_city = tasks.identify_city(
-            city_selection_expert,
-            self.origin,
-            self.cities,
-            self.date_range,
-            self.interests,
+        product_research = tasks.research_olive_young_award_products(
+            product_researcher,
+            self.skin_type,
+            self.concerns,
+            self.budget,
+            "2024"
         )
-        
-        gather_city_info = tasks.gather_city_info(
-            local_tour_guide,
-            self.cities,
-            self.date_range,
-            self.interests
+
+        personalized_routine = tasks.create_personalized_routine(
+            skincare_expert,
+            self.skin_type,
+            self.concerns,
+            self.budget,
+            self.existing_products
         )
 
         crew = Crew(
-            agents=[expert_travel_agent, city_selection_expert, local_tour_guide],
-            tasks=[plan_itinerary, identify_city, gather_city_info],
+            agents=[korean_researcher, product_researcher, skincare_expert],
+            tasks=[routine_framework, product_research, personalized_routine],
             verbose=True,
         )
 
@@ -56,17 +57,17 @@ class TripCrew:
         return result
 
 if __name__ == "__main__":
-    print("## Welcome to Trip Planner Crew")
-    print('-------------------------------')
-    origin = input("From where will you be traveling from? ")
-    cities = input("What are the cities options you are interested in visiting? ")
-    date_range = input("What is the date range you are interested in traveling? ")
-    interests = input("What are some of your high level interests and hobbies? ")
+    print("## Welcome to Korean Skincare Routine Planner Crew")
+    print('---------------------------------------------------')
+    skin_type = input("What is your skin type? (e.g., oily, dry, combination, sensitive): ")
+    concerns = input("What are your main skin concerns? (e.g., acne, aging, dullness, pores): ")
+    budget = input("What is your budget tier? (e.g., drugstore, mid-range, luxury): ")
+    existing_products = input("What products are you currently using? (optional): ")
     
-    trip_crew = TripCrew(origin, cities, date_range, interests)
-    result = trip_crew.run()
+    skincare_crew = SkincareCrew(skin_type, concerns, budget, existing_products)
+    result = skincare_crew.run()
     
     print("\n\n###############")
-    print("## Here is your Trip Plan")
+    print("## Here is Your Personalized Korean Skincare Routine")
     print("###############")
     print(result)

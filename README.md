@@ -46,3 +46,6 @@ Next step is to provide
 ```bash
 poetry run python main.py
 ```
+
+### Note
+This template is currently dependent on OPENAI. Versatility can be improved in future for other language models.

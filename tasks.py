@@ -46,67 +46,133 @@ class TravelTasks:
     def __tip_section(self):
         return "If you do your BEST WORK, I'll give you a $10,000 commission!"
 
-    def plan_itinerary(self, agent, city, travel_dates, interests):
+    # def plan_itinerary(self, agent, city, travel_dates, interests):
+    #     return Task(
+    #         description=dedent(
+    #             f"""
+    #         *Task**: Develop a 7-Day Travel Itinerary
+    #         **Description**: Expand the city guide into a full 7-day itinerary with detailed per-day plans, including weather forecast, places to eat, packing suggestions, and a 
+    #         budget breakdown. You MUST suggest actual places to visit, actual hotels to stay, and actual restaurants to go to.
+    #         This itinerary should cover all aspects of the trip, from arrival to departure, integrating the city guide information with practical travel logistics.
+    
+    #         **Parameters**:
+    #         - City: {city}
+    #         - Trip Date: {travel_dates}
+    #         - Traveler Interests: {interests}
+
+    
+    #         **Notes**: {self.__tip_section()}
+    #     """
+    #         ),
+    #         agent=agent,
+    #         expected_output="A detailed 7-day travel itinerary with daily activities, accommodations, dining options, budget breakdown, and practical travel advice."  # ← ONLY CHANGE: Added this line
+    #     )
+
+    # def identify_city(self, agent, origin, cities, interests, travel_dates):
+    #     return Task(
+    #         description=dedent(
+    #             f"""
+    #         **Task**: Identify the Best City for the Trip
+    #         **Description**: Analyse and select the best city for the trip based on specific criteria such as weather patterns
+    #         , seasonal events, and travel costs. This task involves comparing multiple cities, considering factors like current
+    #         weather conditions, upcoming cultural or seasonal events, and overall travel expenses. Your final answer must be a detailed report on the chosen city, including actual flight costs, weather forecast, and attractions.
+
+    #         **Parameters**:
+    #         - Origin: {origin}
+    #         - Cities: {cities}
+    #         - Interest: {interests}
+    #         - Travel Date: {travel_dates}
+
+    #         **Notes**: {self.__tip_section()}
+    #     """
+    #         ),
+    #         agent=agent,
+    #         expected_output="A detailed report selecting the best city with analysis of weather, costs, attractions, and flight information."  # ← ONLY CHANGE: Added this line
+    #     )
+    
+    # def gather_city_info(self, agent, city, interests, travel_dates):
+    #     return Task(
+    #         description=dedent(
+    #             f"""
+    #         **Task**: Gather in-depth city guide information
+    #         **Description**: Compile an in-depth guide for the selected city, gathering information about key attractions, local customs
+    #         , special events, and daily activity reccommendations. THis guide should provide a thorough overview of what the city has to offer, including
+    #         hidden gems, cultural hotspots, must-visit landmarks, weather forecasts, and high-level cost
+
+    #         **Parameters**:
+    #         - Cities: {city}
+    #         - Interest: {interests}
+    #         - Travel Date: {travel_dates}
+
+    #         **Notes**: {self.__tip_section()}
+    #     """
+    #         ),
+    #         agent=agent,
+    #         expected_output="A comprehensive city guide with attractions, customs, events, daily recommendations, and cost estimates."  # ← ONLY CHANGE: Added this line
+    #     )
+
+    def gather_korean_routine_framework(self, agent, skin_type, concerns, budget):
+            
         return Task(
             description=dedent(
                 f"""
-            *Task**: Develop a 7-Day Travel Itinerary
-            **Description**: Expand the city guide into a full 7-day itinerary with detailed per-day plans, including weather forecast, places to eat, packing suggestions, and a 
-            budget breakdown. You MUST suggest actual places to visit, actual hotels to stay, and actual restaurants to go to.
-            This itinerary should cover all aspects of the trip, from arrival to departure, integrating the city guide information with practical travel logistics.
-    
-            **Parameters**:
-            - City: {city}
-            - Trip Date: {travel_dates}
-            - Traveler Interests: {interests}
+            **Task**: Research Korean Skincare Routine Framework
+            **Description**: Research and outline the fundamental steps of the Korean skincare routine philosophy. 
+            Focus on the multi-step approach (double cleansing, toning, essences, serums, moisturizers, SPF) 
+            and explain the purpose of each step. Include both AM and PM routines.
 
-    
+            **Parameters**:
+            - Skin Type: {skin_type}
+            - Primary Concerns: {concerns}
+            - Budget Tier: {budget}
+
             **Notes**: {self.__tip_section()}
         """
             ),
             agent=agent,
-            expected_output="A detailed 7-day travel itinerary with daily activities, accommodations, dining options, budget breakdown, and practical travel advice."  # ← ONLY CHANGE: Added this line
+            expected_output="A detailed Korean skincare routine framework with explanations for each step, tailored to the specified skin type and concerns."
         )
 
-    def identify_city(self, agent, origin, cities, interests, travel_dates):
+    def research_olive_young_award_products(self, agent, skin_type, concerns, budget, current_year):
         return Task(
             description=dedent(
                 f"""
-            **Task**: Identify the Best City for the Trip
-            **Description**: Analyse and select the best city for the trip based on specific criteria such as weather patterns
-            , seasonal events, and travel costs. This task involves comparing multiple cities, considering factors like current
-            weather conditions, upcoming cultural or seasonal events, and overall travel expenses. Your final answer must be a detailed report on the chosen city, including actual flight costs, weather forecast, and attractions.
+            **Task**: Analyze Olive Young Award Winning Products
+            **Description**: Research the latest Olive Young Best Award winners and other proven Korean skincare products. 
+            Focus on products that are gentle, effective, and suitable for the specified skin type. 
+            Include product names, key ingredients, price ranges, and why they're award-winning.
 
             **Parameters**:
-            - Origin: {origin}
-            - Cities: {cities}
-            - Interest: {interests}
-            - Travel Date: {travel_dates}
+            - Skin Type: {skin_type}
+            - Concerns: {concerns} 
+            - Budget: {budget}
+            - Current Year: {current_year}
 
             **Notes**: {self.__tip_section()}
         """
             ),
             agent=agent,
-            expected_output="A detailed report selecting the best city with analysis of weather, costs, attractions, and flight information."  # ← ONLY CHANGE: Added this line
+            expected_output="A curated list of Olive Young award-winning and proven Korean skincare products with details on ingredients, pricing, and suitability."
         )
-    
-    def gather_city_info(self, agent, city, interests, travel_dates):
+
+    def create_personalized_routine(self, agent, skin_type, concerns, budget, existing_products):
         return Task(
             description=dedent(
                 f"""
-            **Task**: Gather in-depth city guide information
-            **Description**: Compile an in-depth guide for the selected city, gathering information about key attractions, local customs
-            , special events, and daily activity reccommendations. THis guide should provide a thorough overview of what the city has to offer, including
-            hidden gems, cultural hotspots, must-visit landmarks, weather forecasts, and high-level cost
+            **Task**: Create Personalized Skincare Routine
+            **Description**: As a skincare expert with 20 years of experience, create a complete personalized routine 
+            using the researched Korean framework and products. Include specific product recommendations, 
+            application order, frequency, and practical tips for someone with {skin_type} skin trying to address {concerns}.
 
             **Parameters**:
-            - Cities: {city}
-            - Interest: {interests}
-            - Travel Date: {travel_dates}
+            - Skin Type: {skin_type}
+            - Concerns: {concerns}
+            - Budget: {budget}
+            - Existing Products (if any): {existing_products}
 
             **Notes**: {self.__tip_section()}
         """
             ),
             agent=agent,
-            expected_output="A comprehensive city guide with attractions, customs, events, daily recommendations, and cost estimates."  # ← ONLY CHANGE: Added this line
-        )
+            expected_output="A complete personalized Korean skincare routine with specific product recommendations, application instructions, and expert tips."
+    )

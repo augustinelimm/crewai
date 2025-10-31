@@ -13,37 +13,64 @@ class TravelAgents:
         # self.OpenAIGPT4 = ChatOpenAI(model_name="gpt-4", temperature=0.7)
         # or other models
 
-    def expert_travel_agent(self):
+    # def expert_travel_agent(self):
+    #     return Agent(
+    #         role="Expert Travel Agent",
+    #         backstory=dedent(f"""Expert in travel planning and logistics. I have decades of experience making travel itineraries"""),
+    #         goal=dedent(f"""Create a 7-day travel itinerary with detailed per-day plan include budget, packing suggestions, and safety tips"""),
+    #         tools=[
+    #             SearchTools(),
+    #             CalculatorTools()
+    #         ],
+    #         verbose=True,
+    #         llm=self.OpenAIGPT35,
+    #     )
+
+    # def city_selection_expert(self):
+    #     return Agent(
+    #         role="City Selection Expert",
+    #         backstory=dedent(f"""Expert in analysing travel data to pick ideal destinations"""),
+    #         goal=dedent(f"""Select the best cities based on weather, season, prices, and traveller interests"""),
+    #         tools = [SearchTools()],
+    #         allow_delegation=False,
+    #         verbose=True,
+    #         llm=self.OpenAIGPT35,
+    #     )
+    
+    # def local_tour_guide(self):
+    #     return Agent(
+    #         role="Local Tour Guide",
+    #         backstory=dedent(f"""Knowledgable local tour guide with extensive information about the city, it's attractions and customs"""),
+    #         goal=dedent(f"""Provide the BEST insights about selected city"""),
+    #         tools=[SearchTools()],
+    #         allow_delegation=False,
+    #         verbose=True,
+    #         llm=self.OpenAIGPT35,
+    #     )
+
+    def korean_skincare_researcher(self):
         return Agent(
-            role="Expert Travel Agent",
-            backstory=dedent(f"""Expert in travel planning and logistics. I have decades of experience making travel itineraries"""),
-            goal=dedent(f"""Create a 7-day travel itinerary with detailed per-day plan include budget, packing suggestions, and safety tips"""),
-            tools=[
-                SearchTools(),
-                CalculatorTools()
-            ],
-            verbose=True,
+            role="Korean Skincare Researcher",
+            backstory="Expert in Korean skincare philosophy and routine frameworks",
+            goal="Research and explain Korean skincare methodologies",
+            tools=[SearchTools()],
             llm=self.OpenAIGPT35,
         )
 
-    def city_selection_expert(self):
+    def product_researcher(self):
         return Agent(
-            role="City Selection Expert",
-            backstory=dedent(f"""Expert in analysing travel data to pick ideal destinations"""),
-            goal=dedent(f"""Select the best cities based on weather, season, prices, and traveller interests"""),
-            tools = [SearchTools()],
-            allow_delegation=False,
-            verbose=True,
+            role="Beauty Product Researcher", 
+            backstory="Specializes in analyzing skincare products, ingredients, and award winners",
+            goal="Find the most effective and gentle Korean skincare products",
+            tools=[SearchTools()],
             llm=self.OpenAIGPT35,
         )
-    
-    def local_tour_guide(self):
+
+    def skincare_expert(self):
         return Agent(
-            role="Local Tour Guide",
-            backstory=dedent(f"""Knowledgable local tour guide with extensive information about the city, it's attractions and customs"""),
-            goal=dedent(f"""Provide the BEST insights about selected city"""),
+            role="Skincare Formulation Expert",
+            backstory="20 years experience formulating skincare routines for various skin types",
+            goal="Create personalized, effective skincare routines",
             tools=[SearchTools()],
-            allow_delegation=False,
-            verbose=True,
             llm=self.OpenAIGPT35,
         )
