@@ -49,3 +49,5 @@ poetry run python main.py
 
 ### Note
 This template is currently dependent on OPENAI. Versatility can be improved in future for other language models.
+Use eg. deepseek as a base model to curate codes based on interview questions
+this allows for much more versatile approach.
