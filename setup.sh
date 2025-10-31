@@ -12,13 +12,5 @@ fi
 echo "Installing dependencies..."
 poetry install
 
-# Create .env file if it doesn't exist
-if [ ! -f .env ]; then
-    echo "Creating .env file..."
-    cat > .env << EOF
-OPENAI_API_KEY=your_openai_api_key_here
-EOF
-    echo "Please edit .env file with your actual OpenAI API key"
-fi
-
+echo "Please edit .env file with your actual OpenAI API key"
 echo "Setup complete! Run: poetry run python main.py"

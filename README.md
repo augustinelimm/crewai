@@ -29,8 +29,7 @@ To create a Crew , you need to define Agent ,Task and following Parameters:
     [More Details about Crew](https://docs.crewai.com/concepts/crew).
 
 
-
-# Trip Planner Crew
+## Set up instructions
 
 AI-powered travel itinerary planner using CrewAI.
 
